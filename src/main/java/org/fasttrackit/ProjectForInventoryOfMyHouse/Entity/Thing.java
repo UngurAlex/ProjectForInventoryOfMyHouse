@@ -12,7 +12,7 @@ import lombok.*;
 @Entity
 public class Thing {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column

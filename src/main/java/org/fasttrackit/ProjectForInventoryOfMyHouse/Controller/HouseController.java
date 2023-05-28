@@ -17,7 +17,7 @@ public class HouseController {
     private final HouseService houseService;
 
     @GetMapping("/all")
-    public List<House> getAllHouse() {
+    public List<House> getAllHousesWithRoomsAndThings() {
         return houseService.getAllHousesWithRoomsAndThings();
     }
 

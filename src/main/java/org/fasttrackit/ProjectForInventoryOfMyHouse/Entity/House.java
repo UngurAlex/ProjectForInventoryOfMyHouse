@@ -14,12 +14,12 @@ import java.util.List;
 @Entity
 public class House {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column
     private String name;
 
     @OneToMany(mappedBy = "house", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Room> room=new ArrayList<>();
+    private List<Room> room;
 }
