@@ -3,8 +3,9 @@ package org.fasttrackit.ProjectForInventoryOfMyHouse.Entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.ArrayList;
 import java.util.List;
+
+import static jakarta.persistence.FetchType.LAZY;
 
 @Builder(toBuilder = true)
 @With
@@ -20,6 +21,8 @@ public class House {
     @Column
     private String name;
 
-    @OneToMany(mappedBy = "house", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Room> room;
+    @OneToMany(mappedBy = "house", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE}, fetch = LAZY)
+    private List<Room> rooms;
+
+
 }
